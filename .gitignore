@@ -1,23 +1,54 @@
-# Compiled class file
+##### java
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
+.classpath
+target/
 .mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+BuildProcessTemplates/
+.springBeans
+*.pid
+elasticsearch/
+
+#### mule
+.mule
+.studio
+
+#idea
+.idea/
+*.iml
+*.log
+
+#git ignore
+#.gitignore
+
+#eclipse
+.metadata/
+RemoteSystemsTempFiles/
+Servers/
+.settings
+*.buildpath
+*.project
+
+#visual studio 2013
+*.vssscc
+*.vspscc
+Miya.Spider/packages/
+bin/
+obj/
+*.suo
+
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+#tfs
+$tf
+
+#idea
+.idea/
+*.iml
