@@ -1,6 +1,6 @@
 #端口号
 server:
-  port: 8888
+  port: 8889
 #Eureka实例名，集群中根据这里相互识别
 eureka:
   instance:
@@ -13,4 +13,4 @@ eureka:
     fetch-registry: false
     #注册中心地址
     service-url:
-      defaultZone: http://localhost:8889/eureka/
+      defaultZone: http://localhost:8888/eureka/
