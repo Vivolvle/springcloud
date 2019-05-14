@@ -13,4 +13,4 @@ eureka:
     fetch-registry: false
     #注册中心地址
     service-url:
-      defaultZone: http://localhost:8889/eureka/
+      defaultZone: http://localhost:8888/eureka/
