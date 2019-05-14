@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vivolvle.producer.mapper.MapStageMapper" >
+  <resultMap id="BaseResultMap" type="com.vivolvle.producer.model.MapStage" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="institute_id" property="instituteId" jdbcType="BIGINT" />
+    <result column="map_id" property="mapId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="follow_order" property="followOrder" jdbcType="TINYINT" />
+    <result column="score_used" property="scoreUsed" jdbcType="TINYINT" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="order_index" property="orderIndex" jdbcType="TINYINT" />
+    <result column="create_id" property="createId" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, institute_id, map_id, `name`, follow_order, score_used, score, order_index, create_id, 
+    create_date, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from `map_stage`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from `map_stage`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.vivolvle.producer.model.MapStage" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into `map_stage` (institute_id, map_id, `name`, 
+      follow_order, score_used, score, 
+      order_index, create_id, create_date, 
+      update_date)
+    values (#{instituteId,jdbcType=BIGINT}, #{mapId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{followOrder,jdbcType=TINYINT}, #{scoreUsed,jdbcType=TINYINT}, #{score,jdbcType=INTEGER}, 
+      #{orderIndex,jdbcType=TINYINT}, #{createId,jdbcType=BIGINT}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.vivolvle.producer.model.MapStage" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into `map_stage`
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="instituteId != null" >
+        institute_id,
+      </if>
+      <if test="mapId != null" >
+        map_id,
+      </if>
+      <if test="name != null" >
+        `name`,
+      </if>
+      <if test="followOrder != null" >
+        follow_order,
+      </if>
+      <if test="scoreUsed != null" >
+        score_used,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="orderIndex != null" >
+        order_index,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="instituteId != null" >
+        #{instituteId,jdbcType=BIGINT},
+      </if>
+      <if test="mapId != null" >
+        #{mapId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="followOrder != null" >
+        #{followOrder,jdbcType=TINYINT},
+      </if>
+      <if test="scoreUsed != null" >
+        #{scoreUsed,jdbcType=TINYINT},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="orderIndex != null" >
+        #{orderIndex,jdbcType=TINYINT},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vivolvle.producer.model.MapStage" >
+    update `map_stage`
+    <set >
+      <if test="instituteId != null" >
+        institute_id = #{instituteId,jdbcType=BIGINT},
+      </if>
+      <if test="mapId != null" >
+        map_id = #{mapId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="followOrder != null" >
+        follow_order = #{followOrder,jdbcType=TINYINT},
+      </if>
+      <if test="scoreUsed != null" >
+        score_used = #{scoreUsed,jdbcType=TINYINT},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="orderIndex != null" >
+        order_index = #{orderIndex,jdbcType=TINYINT},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vivolvle.producer.model.MapStage" >
+    update `map_stage`
+    set institute_id = #{instituteId,jdbcType=BIGINT},
+      map_id = #{mapId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      follow_order = #{followOrder,jdbcType=TINYINT},
+      score_used = #{scoreUsed,jdbcType=TINYINT},
+      score = #{score,jdbcType=INTEGER},
+      order_index = #{orderIndex,jdbcType=TINYINT},
+      create_id = #{createId,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

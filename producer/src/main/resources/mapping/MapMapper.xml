@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vivolvle.producer.mapper.MapMapper" >
+  <resultMap id="BaseResultMap" type="com.vivolvle.producer.model.Map" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="institute_id" property="instituteId" jdbcType="BIGINT" />
+    <result column="resource_id" property="resourceId" jdbcType="BIGINT" />
+    <result column="theme_id" property="themeId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="brief" property="brief" jdbcType="VARCHAR" />
+    <result column="time_used" property="timeUsed" jdbcType="TINYINT" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="catagory_id" property="catagoryId" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="follow" property="follow" jdbcType="TINYINT" />
+    <result column="collect" property="collect" jdbcType="TINYINT" />
+    <result column="follow_order" property="followOrder" jdbcType="TINYINT" />
+    <result column="create_id" property="createId" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, institute_id, resource_id, theme_id, `name`, brief, time_used, start_time, end_time, 
+    catagory_id, `status`, follow, `collect`, follow_order, create_id, create_date, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from `map`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from `map`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.vivolvle.producer.model.Map" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into `map` (institute_id, resource_id, theme_id, 
+      `name`, brief, time_used, 
+      start_time, end_time, catagory_id, 
+      `status`, follow, `collect`, 
+      follow_order, create_id, create_date, 
+      update_date)
+    values (#{instituteId,jdbcType=BIGINT}, #{resourceId,jdbcType=BIGINT}, #{themeId,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{brief,jdbcType=VARCHAR}, #{timeUsed,jdbcType=TINYINT}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{catagoryId,jdbcType=BIGINT}, 
+      #{status,jdbcType=TINYINT}, #{follow,jdbcType=TINYINT}, #{collect,jdbcType=TINYINT}, 
+      #{followOrder,jdbcType=TINYINT}, #{createId,jdbcType=BIGINT}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.vivolvle.producer.model.Map" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into `map`
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="instituteId != null" >
+        institute_id,
+      </if>
+      <if test="resourceId != null" >
+        resource_id,
+      </if>
+      <if test="themeId != null" >
+        theme_id,
+      </if>
+      <if test="name != null" >
+        `name`,
+      </if>
+      <if test="brief != null" >
+        brief,
+      </if>
+      <if test="timeUsed != null" >
+        time_used,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="catagoryId != null" >
+        catagory_id,
+      </if>
+      <if test="status != null" >
+        `status`,
+      </if>
+      <if test="follow != null" >
+        follow,
+      </if>
+      <if test="collect != null" >
+        `collect`,
+      </if>
+      <if test="followOrder != null" >
+        follow_order,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="instituteId != null" >
+        #{instituteId,jdbcType=BIGINT},
+      </if>
+      <if test="resourceId != null" >
+        #{resourceId,jdbcType=BIGINT},
+      </if>
+      <if test="themeId != null" >
+        #{themeId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null" >
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="timeUsed != null" >
+        #{timeUsed,jdbcType=TINYINT},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="catagoryId != null" >
+        #{catagoryId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="follow != null" >
+        #{follow,jdbcType=TINYINT},
+      </if>
+      <if test="collect != null" >
+        #{collect,jdbcType=TINYINT},
+      </if>
+      <if test="followOrder != null" >
+        #{followOrder,jdbcType=TINYINT},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vivolvle.producer.model.Map" >
+    update `map`
+    <set >
+      <if test="instituteId != null" >
+        institute_id = #{instituteId,jdbcType=BIGINT},
+      </if>
+      <if test="resourceId != null" >
+        resource_id = #{resourceId,jdbcType=BIGINT},
+      </if>
+      <if test="themeId != null" >
+        theme_id = #{themeId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null" >
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="timeUsed != null" >
+        time_used = #{timeUsed,jdbcType=TINYINT},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="catagoryId != null" >
+        catagory_id = #{catagoryId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="follow != null" >
+        follow = #{follow,jdbcType=TINYINT},
+      </if>
+      <if test="collect != null" >
+        `collect` = #{collect,jdbcType=TINYINT},
+      </if>
+      <if test="followOrder != null" >
+        follow_order = #{followOrder,jdbcType=TINYINT},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vivolvle.producer.model.Map" >
+    update `map`
+    set institute_id = #{instituteId,jdbcType=BIGINT},
+      resource_id = #{resourceId,jdbcType=BIGINT},
+      theme_id = #{themeId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      brief = #{brief,jdbcType=VARCHAR},
+      time_used = #{timeUsed,jdbcType=TINYINT},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      catagory_id = #{catagoryId,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=TINYINT},
+      follow = #{follow,jdbcType=TINYINT},
+      `collect` = #{collect,jdbcType=TINYINT},
+      follow_order = #{followOrder,jdbcType=TINYINT},
+      create_id = #{createId,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

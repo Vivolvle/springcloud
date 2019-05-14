@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vivolvle.producer.mapper.MapLogMapper" >
+  <resultMap id="BaseResultMap" type="com.vivolvle.producer.model.MapLog" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="institute_id" property="instituteId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="map_id" property="mapId" jdbcType="BIGINT" />
+    <result column="stage_id" property="stageId" jdbcType="BIGINT" />
+    <result column="course_id" property="courseId" jdbcType="BIGINT" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="reward_score" property="rewardScore" jdbcType="INTEGER" />
+    <result column="is_success" property="isSuccess" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, institute_id, user_id, map_id, stage_id, course_id, start_time, end_time, reward_score, 
+    is_success
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from `map_log`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from `map_log`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.vivolvle.producer.model.MapLog" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into `map_log` (institute_id, user_id, map_id, 
+      stage_id, course_id, start_time, 
+      end_time, reward_score, is_success
+      )
+    values (#{instituteId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{mapId,jdbcType=BIGINT}, 
+      #{stageId,jdbcType=BIGINT}, #{courseId,jdbcType=BIGINT}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{rewardScore,jdbcType=INTEGER}, #{isSuccess,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.vivolvle.producer.model.MapLog" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into `map_log`
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="instituteId != null" >
+        institute_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="mapId != null" >
+        map_id,
+      </if>
+      <if test="stageId != null" >
+        stage_id,
+      </if>
+      <if test="courseId != null" >
+        course_id,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="rewardScore != null" >
+        reward_score,
+      </if>
+      <if test="isSuccess != null" >
+        is_success,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="instituteId != null" >
+        #{instituteId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="mapId != null" >
+        #{mapId,jdbcType=BIGINT},
+      </if>
+      <if test="stageId != null" >
+        #{stageId,jdbcType=BIGINT},
+      </if>
+      <if test="courseId != null" >
+        #{courseId,jdbcType=BIGINT},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rewardScore != null" >
+        #{rewardScore,jdbcType=INTEGER},
+      </if>
+      <if test="isSuccess != null" >
+        #{isSuccess,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vivolvle.producer.model.MapLog" >
+    update `map_log`
+    <set >
+      <if test="instituteId != null" >
+        institute_id = #{instituteId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="mapId != null" >
+        map_id = #{mapId,jdbcType=BIGINT},
+      </if>
+      <if test="stageId != null" >
+        stage_id = #{stageId,jdbcType=BIGINT},
+      </if>
+      <if test="courseId != null" >
+        course_id = #{courseId,jdbcType=BIGINT},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rewardScore != null" >
+        reward_score = #{rewardScore,jdbcType=INTEGER},
+      </if>
+      <if test="isSuccess != null" >
+        is_success = #{isSuccess,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vivolvle.producer.model.MapLog" >
+    update `map_log`
+    set institute_id = #{instituteId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      map_id = #{mapId,jdbcType=BIGINT},
+      stage_id = #{stageId,jdbcType=BIGINT},
+      course_id = #{courseId,jdbcType=BIGINT},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      reward_score = #{rewardScore,jdbcType=INTEGER},
+      is_success = #{isSuccess,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
