@@ -1,0 +1,14 @@
+#端口号
+server:
+  port: 8080
+#Eureka实例名，集群中根据这里相互识别
+spring:
+  application:
+    name: producer
+
+eureka:
+  #客户端
+  client:
+    #注册中心地址
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
