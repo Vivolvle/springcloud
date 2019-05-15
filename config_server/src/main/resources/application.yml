@@ -5,7 +5,15 @@ server:
 spring:
   application:
     name: config
-
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Vivolvle/config_repo
+          username: 1067310192@qq.com
+          password: 1771291wei
+          #把从git上拉取下来的配置文件存放本地的位置
+          basedir: /cloud/config
 eureka:
   #客户端
   client:
