@@ -4,7 +4,7 @@ server:
 #spring_application_name 为map-dev.yml前面部分，后面的profile为后半部分
 spring:
   application:
-    name: map
+    name: producer
   cloud:
     config:
       discovery:
