@@ -25,3 +25,8 @@ eureka:
     #注册中心地址
     service-url:
       defaultZone: http://localhost:8888/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
