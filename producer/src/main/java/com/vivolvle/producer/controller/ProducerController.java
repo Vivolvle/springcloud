@@ -3,6 +3,7 @@ package com.vivolvle.producer.controller;
 import com.vivolvle.producer.model.MapTheme;
 import com.vivolvle.producer.service.MapThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,10 +17,12 @@ import java.util.List;
 public class ProducerController {
     @Autowired
     private MapThemeService mapThemeService;
+    @Value("${env1}")
+    private String env1;
 
     @GetMapping("/msg")
     public String msg(){
-        return "hello_world";
+        return env1;
     }
 
     @GetMapping("/list")

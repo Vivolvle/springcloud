@@ -17,7 +17,6 @@ public class ConsumerController {
     @GetMapping("/getMsg")
     public String getMsg(){
         String response = productClient.productMsg();
-        System.out.println(response);
-        return "get message";
+        return response;
     }
 }

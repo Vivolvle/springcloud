@@ -1,14 +1,7 @@
-#端口号
-server:
-  port: 8082
-Eureka实例名，集群中根据这里相互识别
+#虽然从git上读出来过这个配置，但是一定要手写，不然就往localhost找rabbitmq了
 spring:
-  application:
-    name: feign_client
-
-eureka:
-  #客户端
-  client:
-    #注册中心地址
-    service-url:
-      defaultZone: http://localhost:8888/eureka/
+  rabbitmq:
+    host: 106.12.27.130
+    port: 5672
+    username: guest
+    password: guest
