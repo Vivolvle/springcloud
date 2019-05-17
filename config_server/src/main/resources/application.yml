@@ -24,9 +24,12 @@ eureka:
   client:
     #注册中心地址
     service-url:
+      #以下是部署到云服务器上的域名
+      #defaultZone: http://bus.vivolvle.cn:8888/eureka/
       defaultZone: http://localhost:8888/eureka/
 management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh
+        #不要写成bus-refresh,因为git使用的是monitor
+        include: "*"

@@ -13,4 +13,6 @@ eureka:
     fetch-registry: false
     #注册中心地址
     service-url:
+      #以下是部署到云服务器上的域名
+      #defaultZone: http://bus.vivolvle.cn:8888/eureka/
       defaultZone: http://localhost:8888/eureka/
