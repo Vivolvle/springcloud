@@ -1,7 +1,0 @@
-#虽然从git上读出来过这个配置，但是一定要手写，不然就往localhost找rabbitmq了
-spring:
-  rabbitmq:
-    host: 106.12.27.130
-    port: 5672
-    username: guest
-    password: guest

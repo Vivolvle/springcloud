@@ -9,16 +9,23 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Vivolvle/config_repo
+          uri: https://github.com/Vivolvle/config_repo_kafka.git
           username: 1067310192@qq.com
           password: 1771291wei
           #把从git上拉取下来的配置文件存放本地的位置
-          basedir: /cloud/config
-  rabbitmq:
-    host: 106.12.27.130
-    port: 5672
-    username: guest
-    password: guest
+          basedir: /cloud/kafka
+    stream:
+      kafka:
+        binder:
+          #Kafka的服务端列表，默认localhost
+          brokers: 106.12.27.130:9092
+          defaultBrokerPort: 9092
+          zkNodes: 106.12.27.130:2181
+          defaultZkPort: 2181
+  kafka:
+    bootstrap-servers: 106.12.27.130:9092
+    consumer:
+      group-id: test
 eureka:
   #客户端
   client:
