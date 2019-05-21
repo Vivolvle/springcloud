@@ -1,0 +1,23 @@
+#端口号
+server:
+  port: 8090
+#spring_application_name 为map-dev.yml前面部分，后面的profile为后半部分
+spring:
+  application:
+    name: api_gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+      label: master
+#注册中心一定要有不然会报错的哦
+eureka:
+  #客户端
+  client:
+    #注册中心地址
+    service-url:
+      #以下是部署到云服务器上的域名
+      #defaultZone: http://bus.vivolvle.cn:8888/eureka/
+      defaultZone: http://localhost:8888/eureka/
