@@ -20,4 +20,6 @@ public class UserController {
     public UserInfo getById(@PathVariable("id") Integer id){
         return userService.getUserById(id);
     }
+
+
 }
