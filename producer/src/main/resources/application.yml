@@ -3,3 +3,12 @@ management:
     web:
       exposure:
         include: bus-refresh
+spring:
+  cloud:
+    stream:
+      kafka:
+        bindings:
+          output:
+            group: order
+            #方便在可视界面更好的观察未被消费的消息
+            content-type: application/json

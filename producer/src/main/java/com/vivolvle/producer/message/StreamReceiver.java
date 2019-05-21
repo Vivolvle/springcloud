@@ -23,7 +23,14 @@ public class StreamReceiver {
     }
 
     @StreamListener("output")
-    public void processOutput(Object message) {
+    @SendTo("output1")
+    public String processOutput(Object message) {
         log.info("StreamOutputReceiver: {}", message);
+        return "helloWorld";
+    }
+
+    @StreamListener("output1")
+    public void processOutput1(String message){
+        log.info("StreamOutput1Receiver: {}", message);
     }
 }

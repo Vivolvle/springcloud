@@ -16,4 +16,7 @@ public interface StreamClient {
 
     @Output("output")
     MessageChannel output();
+
+    @Output("output1")
+    MessageChannel output1();
 }
