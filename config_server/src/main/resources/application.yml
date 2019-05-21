@@ -14,6 +14,7 @@ spring:
           password: 1771291wei
           #把从git上拉取下来的配置文件存放本地的位置
           basedir: /cloud/kafka
+    #在configServer端一定要写配置文件，不然会默认localhost
     stream:
       kafka:
         binder:

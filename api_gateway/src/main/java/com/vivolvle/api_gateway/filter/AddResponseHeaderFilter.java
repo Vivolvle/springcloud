@@ -17,7 +17,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
  * @Date: 2019/5/21 17:47
  */
 @Component
-public class addResponseHeaderFilter extends ZuulFilter {
+public class AddResponseHeaderFilter extends ZuulFilter {
     @Override
     public String filterType() {
         return POST_TYPE;
