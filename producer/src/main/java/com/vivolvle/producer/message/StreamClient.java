@@ -11,9 +11,9 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface StreamClient {
 
-    @Input("myMessage")
+    @Input("input")
     SubscribableChannel input();
 
-    @Output("myMessage")
+    @Output("output")
     MessageChannel output();
 }

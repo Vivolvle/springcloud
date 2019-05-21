@@ -18,7 +18,7 @@ public class SendMessageController {
     private StreamClient streamClient;
 
     @GetMapping("/sendMessage")
-    public void process(){
-        streamClient.output().send(MessageBuilder.withPayload("now "+new Date()).build());
+    public void process() {
+        streamClient.output().send(MessageBuilder.withPayload("now " + new Date()).build());
     }
 }
