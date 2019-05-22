@@ -4,16 +4,16 @@ import javax.persistence.*;
 import java.util.Objects;
 
 /**
- * @author weilz
- * @date 2019/5/21
+ * @Author: weilz
+ * @Date: 2019/5/22 16:11
  */
 @Entity
-@Table(name = "user_info", schema = "map")
-public class UserInfo {
+@Table(name = "order_info", schema = "map")
+public class OrderInfo {
     private int id;
     private String name;
-    private String password;
-    private byte type;
+    private int number;
+    private byte status;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -37,38 +37,38 @@ public class UserInfo {
     }
 
     @Basic
-    @Column(name = "password")
-    public String getPassword() {
-        return password;
+    @Column(name = "number")
+    public int getNumber() {
+        return number;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     @Basic
-    @Column(name = "type")
-    public byte getType() {
-        return type;
+    @Column(name = "status")
+    public byte getStatus() {
+        return status;
     }
 
-    public void setType(byte type) {
-        this.type = type;
+    public void setStatus(byte status) {
+        this.status = status;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserInfo userInfo = (UserInfo) o;
-        return id == userInfo.id &&
-                type == userInfo.type &&
-                Objects.equals(name, userInfo.name) &&
-                Objects.equals(password, userInfo.password);
+        OrderInfo orderInfo = (OrderInfo) o;
+        return id == orderInfo.id &&
+                number == orderInfo.number &&
+                status == orderInfo.status &&
+                Objects.equals(name, orderInfo.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, password, type);
+        return Objects.hash(id, name, number, status);
     }
 }

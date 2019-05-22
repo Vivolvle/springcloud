@@ -1,15 +1,18 @@
 #自定义路由 当然可以放在git上面实现动态路由
-zuul:
-  routes:
-    #sensitiveHeaders让cookie可以传递过来
-    myProducer:
-      path: /myProducer/**
-      serviceId: producer
-      sensitiveHeaders:
-    #简便写法
-#    producer: /myProducer/**
-    #让以下的接口无法被访问,更简单可以写成下面的通配符的方式
-  ignored-patterns:
-#    - /producer/list
-#    - /myProducer/list
-    - /**/list
+#zuul:
+#  #全部服务忽略敏感头（全部服务都可以用传递cookie）
+#  sensitive-headers:
+#  routes:
+#    #sensitiveHeaders让cookie可以传递过来
+#    myProducer:
+#      path: /myProducer/**
+#      serviceId: producer
+#      sensitiveHeaders:
+#    #简便写法
+##    producer: /myProducer/**
+#    #让以下的接口无法被访问,更简单可以写成下面的通配符的方式
+#  ignored-patterns:
+##    - /producer/list
+##    - /myProducer/list
+#    - /**/list
+

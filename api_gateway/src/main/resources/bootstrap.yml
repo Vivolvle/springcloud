@@ -10,7 +10,7 @@ spring:
       discovery:
         enabled: true
         service-id: CONFIG
-      profile: dev
+      profile: zuul
       label: master
 #注册中心一定要有不然会报错的哦
 eureka:

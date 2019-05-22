@@ -30,7 +30,7 @@ public class UserController {
             return ServerResponce.createByErrorMessage("登录失败");
         }
         //两小时后过期
-        CookieUtil.set(response, "openId", "123", 7200);
+        CookieUtil.set(response, "openId", name, 7200);
         return ServerResponce.createBySuccessMessage("登陆成功");
     }
 
@@ -41,7 +41,7 @@ public class UserController {
             return ServerResponce.createByErrorMessage("登录失败");
         }
         //两小时后过期
-        CookieUtil.set(response, "openId", "456", 7200);
+        CookieUtil.set(response, "token", name, 7200);
         return ServerResponce.createBySuccessMessage("登陆成功");
     }
 
