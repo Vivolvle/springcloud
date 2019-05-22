@@ -8,4 +8,6 @@ import com.vivolvle.user.entity.UserInfo;
  */
 public interface UserService {
     UserInfo getUserById(Integer id);
+
+    UserInfo getUser(String name, String password, byte type);
 }

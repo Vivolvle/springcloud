@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @date 2019/5/21
  */
 public interface UserInfoRepository extends JpaRepository<UserInfo,Object> {
+    UserInfo findByNameAndPasswordAndType(String name,String password,byte type);
 }

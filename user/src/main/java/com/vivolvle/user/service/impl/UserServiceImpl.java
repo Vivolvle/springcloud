@@ -1,14 +1,10 @@
 package com.vivolvle.user.service.impl;
 
-import com.netflix.discovery.converters.Auto;
 import com.vivolvle.user.entity.UserInfo;
 import com.vivolvle.user.repository.UserInfoRepository;
 import com.vivolvle.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.AccessType;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 /**
  * @author weilz
@@ -22,6 +18,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserInfo getUserById(Integer id) {
         UserInfo userInfo = userInfoRepository.findById(id).get();
+        return userInfo;
+    }
+
+    @Override
+    public UserInfo getUser(String name, String password, byte type) {
+        UserInfo userInfo = userInfoRepository.findByNameAndPasswordAndType(name, password, type);
         return userInfo;
     }
 }
