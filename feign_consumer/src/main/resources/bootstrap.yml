@@ -10,7 +10,8 @@ spring:
       discovery:
         enabled: true
         service-id: CONFIG
-      profile: dev
+      profile: hystrix
+      label: master
 #注册中心一定要有不然会报错的哦
 eureka:
   #客户端
@@ -18,3 +19,23 @@ eureka:
     #注册中心地址
     service-url:
       defaultZone: http://localhost:8888/eureka/
+#以下配置推到了git上了
+#hystrix:
+#  command:
+#    #全局
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 4000
+#      circuitBreaker:
+#        enabled: true
+#        requestVolumeThreshold: 10
+#        sleepWindowInMilliseconds: 10000
+#        errorThresholdPercentage: 60
+#    #为方法名单独设置的
+#    getMapThemeList:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000

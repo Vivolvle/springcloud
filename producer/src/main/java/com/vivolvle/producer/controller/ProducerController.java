@@ -29,6 +29,11 @@ public class ProducerController {
 
     @GetMapping("/list")
     public List<MapTheme> getList(){
+        try {
+            Thread.sleep(2000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return mapThemeService.getList();
     }
 }
