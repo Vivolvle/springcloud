@@ -15,4 +15,13 @@
 ##    - /producer/list
 ##    - /myProducer/list
 #    - /**/list
+#zuul超时配置
+hystrix:
+  command:
+    #全局
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
 
