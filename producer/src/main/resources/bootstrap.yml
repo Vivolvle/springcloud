@@ -12,6 +12,13 @@ spring:
         service-id: CONFIG
       profile: dev
       label: master
+#zipkin的监测配置，配置在了云服务器上
+  zipkin:
+    base-url: http://106.12.27.130:9411/
+#抽样样本，将sleuth的数据，发送到外部，默认为0.1
+  sleuth:
+    sampler:
+      probability: 1
 #注册中心一定要有不然会报错的哦
 eureka:
   #客户端

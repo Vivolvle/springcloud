@@ -53,6 +53,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-kafka</artifactId>
         </dependency>
+        <!-- 链路监控可视化，包含sleuth和zipkin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>

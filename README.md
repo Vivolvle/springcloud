@@ -1,2 +1,2 @@
 # springcloud
-springcloud从0到docker
+docker run -d -p 9411:9411 openzipkin/zipkin 
